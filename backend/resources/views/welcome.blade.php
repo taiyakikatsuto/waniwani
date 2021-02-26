@@ -81,6 +81,7 @@
             @endif
 
             <div class="content">
+            <h2>taiyaki</h2>
                 <div class="title m-b-md">
                     Laravel
                 </div>
