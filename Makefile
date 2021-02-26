@@ -1,3 +1,5 @@
+winpty:
+	exec winpty bash
 up:
 	docker-compose up -d
 build:
