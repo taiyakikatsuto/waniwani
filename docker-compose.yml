@@ -56,4 +56,4 @@ services:
     ports:
       - 4040:80
     volumes:
-      - ./phpmyadmin/sessions:/sessions
+      - ./infra/docker/phpmyadmin/sessions:/sessions
