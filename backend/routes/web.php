@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/ranking', 'RankingController@index')->name('ranking');
 
 Route::get('/result', 'ResultController@index')->name('result');
+Route::post('/result/submit', 'ResultController@submit')->name('result.submit');

@@ -10,4 +10,9 @@ class ResultController extends Controller
     {
         return view('post');
     }
+
+    public function submit()
+    {
+        
+    }
 }
