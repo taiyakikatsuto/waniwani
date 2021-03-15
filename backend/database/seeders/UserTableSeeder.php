@@ -24,6 +24,36 @@ class UserTableSeeder extends Seeder
                 'created_at' => date("Y-m-d H:i:s"),
             ],
         ]);
+
+        DB::table('users')->insert([
+            [
+                'id' => 2,
+                'name' => 'ワニ男',
+                'email' => 'wanio@com',
+                'password' => Hash::make('password'),
+                'created_at' => date("Y-m-d H:i:s"),
+            ],
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'id' => 3,
+                'name' => 'ワニ美',
+                'email' => 'wanimi@com',
+                'password' => Hash::make('password'),
+                'created_at' => date("Y-m-d H:i:s"),
+            ],
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'id' => 4,
+                'name' => 'ワニー・アリゲーター',
+                'email' => 'wani@com',
+                'password' => Hash::make('password'),
+                'created_at' => date("Y-m-d H:i:s"),
+            ],
+        ]);
         
     }
 }
