@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/list', 'RankingController@index')->name('ranking');
+
+Route::get('/result', 'ResultController@index')->name('result');
+
