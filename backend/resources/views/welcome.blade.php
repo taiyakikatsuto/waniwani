@@ -20,19 +20,6 @@
         
     </head>
     <body>
-        <header style="background-image: url('img/home-bg.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <div class="site-heading">
-                            <h1>Clean Blog</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -50,6 +37,7 @@
 
             <div class="content">
             <h2>taiyaki</h2>
+            <a class="nav-link" href="{{ route('ranking') }}">Ranking</a>
                 <div class="title m-b-md">
                     Laravel
                 </div>

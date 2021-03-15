@@ -30,12 +30,23 @@
               <td>154</td>
               <td>モーリーファンタジー淡路</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>ワニ男</td>
-              <td>147</td>
-              <td>ラウンドワン大阪</td>
-            </tr>
+            @if($rankings_all->count())
+              @php
+                  $i = 0;
+              @endphp
+              @foreach ($rankings_all as $ranking_all)
+                  <tr>
+                    <td>{{$i}}</td>
+                    <td>{{ $ranking_all->user->name }}</td>
+                    <td>{{ $ranking_all->point }}</td>
+                    <td>ラウンドワン大阪</td>
+                  </tr>
+                  @php
+                      $i++;
+                  @endphp
+              @endforeach
+            @endif
+
             </tbody>
           </table>
       </div>

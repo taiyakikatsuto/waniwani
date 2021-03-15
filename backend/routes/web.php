@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('root');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/list', 'RankingController@index')->name('ranking');
+Route::get('/ranking', 'RankingController@index')->name('ranking');
 
 Route::get('/result', 'ResultController@index')->name('result');
-
