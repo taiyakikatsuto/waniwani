@@ -9,6 +9,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             {{ Form::open(['method' => 'POST', 'route' => 'result.submit']) }}
+            {{ Form::token() }}
             <div class="card-header">
                 <h2>リザルト投稿</h2>
             </div> 
@@ -23,7 +24,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('point', '点数') !!}
-                {!! Form::text('point', old('point'), [
+                {!! Form::number('point', old('point'), [
                     'id' => 'point',
                     'class' => ['form-control', $errors->has('point') ? 'is-invalid' : ''],
                     'placeholder' => '点数',
@@ -32,7 +33,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('bitten', '噛まれた数') !!}
-                {!! Form::text('bitten', old('bitten'), [
+                {!! Form::number('bitten', old('bitten'), [
                     'id' => 'bitten',
                     'class' => ['form-control', $errors->has('bitten') ? 'is-invalid' : ''],
                     'placeholder' => '噛まれた回数',
