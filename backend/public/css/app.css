@@ -5,7 +5,7 @@
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+ */s
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -94,13 +94,6 @@ html {
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
-}
-
-header {
-  position: relative;
-	height: 50vh;
-  background: url('img/home-bg.jpg') center / cover;
-  opacity: 0.5;
 }
 
 body {
