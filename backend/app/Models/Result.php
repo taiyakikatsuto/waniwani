@@ -9,6 +9,16 @@ class Result extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'user_id',
+        'store_id',
+        'model_id',
+        'play_type',
+        'point',
+        'bitten',
+        'file_name',
+    ];
 
     //Userとのリレーション
     public function user()

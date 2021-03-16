@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            {{ Form::open(['method' => 'GET', 'route' => 'result.submit']) }}
+            {{ Form::open(['method' => 'POST', 'route' => 'result.submit']) }}
             <div class="card-header">
                 <h2>リザルト投稿</h2>
             </div> 
@@ -51,6 +51,10 @@
 
             <div class="form-group mt-5">
                 {!! Form::file('file') !!}
+            </div>
+
+            <div class="text-right">
+                <button class="btn btn-primary">送信</button>
             </div>
 
         {!! Form::close() !!}
