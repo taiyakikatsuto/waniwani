@@ -25,6 +25,9 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        {{ Form::open(['method' => 'POST', 'route' => 'logout']) }}
+                            <button class="btn">Logout</button>
+                        {!! Form::close() !!}
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
