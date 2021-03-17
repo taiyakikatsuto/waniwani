@@ -42,7 +42,7 @@
                     <td>{{ $ranking_all->user->name }}</td>
                     <td>{{ $ranking_all->point }}点</td>
                     <td>{{ $ranking_all->bitten }}回</td>
-                    <td>ラウンドワン大阪</td>
+                    <td>{{ config('consts.stores.Stores')[$ranking_all->store_id] }}</td>
                   </tr>
                   @php
                       $i++;
