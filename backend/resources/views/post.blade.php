@@ -12,7 +12,9 @@
             {{ Form::token() }}
             <div class="card-header">
                 <h2>リザルト投稿</h2>
-            </div> 
+            </div>
+            
+            @guest                
             <div class="form-group mt-4">
                 {!! Form::label('name', '名前') !!}
                 {!! Form::text('name', old('name'), [
@@ -22,7 +24,7 @@
                     'autocomplete' => 'name',
                 ]) !!}
             </div>
-            <div class="form-group mt-4">
+            <div class="form-group">
                 {!! Form::label('email', 'メールアドレス') !!}
                 {!! Form::text('email', old('email'), [
                     'id' => 'email',
@@ -32,7 +34,7 @@
                 ]) !!}
             </div>
 
-            <div class="form-group mt-4">
+            <div class="form-group">
                 {!! Form::label('password', 'パスワード') !!}
                 {!! Form::password('password', [
                     'id' => 'password',
@@ -43,6 +45,19 @@
             </div>
 
             <div class="form-group">
+                {!! Form::label('password_confirmation', 'パスワード確認') !!}
+                {!! Form::password('password_confirmation', [
+                    'id' => 'password_confirmation',
+                    'class' => ['form-control', $errors->has('password_confirmation') ? 'is-invalid' : ''],
+                    'placeholder' => 'パスワード再入力',
+                    'autocomplete' => 'password_confirmation',
+                ]) !!}
+            </div>
+            @endguest
+
+
+
+            <div class="form-group mt-4">
                 {!! Form::label('point', '点数') !!}
                 {!! Form::number('point', old('point'), [
                     'id' => 'point',

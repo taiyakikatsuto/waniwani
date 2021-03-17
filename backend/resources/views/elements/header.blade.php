@@ -7,6 +7,9 @@
         <div class="site-heading">
           <h1>Clean Blog</h1>
           <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          @auth
+          <span class="mt-5 subheading">ログイン中のユーザー：{{ Auth::user()->name }}</span>
+          @endauth
         </div>
       </div>
     </div>
