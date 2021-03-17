@@ -16,12 +16,32 @@
             <div class="form-group mt-4">
                 {!! Form::label('name', '名前') !!}
                 {!! Form::text('name', old('name'), [
-                    'id' => 'name',
+                    'id' => 'email',
                     'class' => ['form-control', $errors->has('name') ? 'is-invalid' : ''],
                     'placeholder' => 'お名前',
                     'autocomplete' => 'name',
                 ]) !!}
             </div>
+            <div class="form-group mt-4">
+                {!! Form::label('email', 'メールアドレス') !!}
+                {!! Form::text('email', old('email'), [
+                    'id' => 'email',
+                    'class' => ['form-control', $errors->has('name') ? 'is-invalid' : ''],
+                    'placeholder' => 'メールアドレス',
+                    'autocomplete' => 'email',
+                ]) !!}
+            </div>
+
+            <div class="form-group mt-4">
+                {!! Form::label('password', 'パスワード') !!}
+                {!! Form::password('password', [
+                    'id' => 'password',
+                    'class' => ['form-control', $errors->has('password') ? 'is-invalid' : ''],
+                    'placeholder' => 'パスワード',
+                    'autocomplete' => 'password',
+                ]) !!}
+            </div>
+
             <div class="form-group">
                 {!! Form::label('point', '点数') !!}
                 {!! Form::number('point', old('point'), [
@@ -40,14 +60,56 @@
                     'autocomplete' => 'bitten',
                 ]) !!}
             </div>
+
             <div class="form-group">
-                {!! Form::label('store', 'プレイ店舗') !!}
-                {!! Form::text('store', old('store'), [
-                    'id' => 'store',
-                    'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
-                    'placeholder' => 'プレイ店舗',
-                    'autocomplete' => 'store',
-                ]) !!}
+                {!! Form::label('model_id', '機種') !!}
+                {!! Form::select('model_id', 
+                    [
+                        '1' => 'ワニワニパニックR',
+                        '2' => '初代ワニワニパニック'
+                    ],
+                    old('model_id'), 
+                    [
+                        'id' => 'model_id',
+                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'placeholder' => '---機種---',
+                        'autocomplete' => 'model_id',
+                    ]
+                ) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('play_type', 'プレイタイプ') !!}
+                {!! Form::select('play_type', 
+                    [
+                        '1' => '1人プレイ',
+                        '2' => '2人プレイ'
+                    ],
+                    old('play_type'), 
+                    [
+                        'id' => 'play_type',
+                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'placeholder' => '---プレイタイプ---',
+                        'autocomplete' => 'play_type',
+                    ]
+                ) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('store_id', 'プレイ店舗') !!}
+                {!! Form::select('store_id', 
+                    [
+                        '1' => 'ラウンドワン東淀川',
+                        '2' => 'ラウンドワン津・高茶屋'
+                    ],
+                    old('store'), 
+                    [
+                        'id' => 'store_id',
+                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'placeholder' => '---プレイ店舗---',
+                        'autocomplete' => 'store',
+                    ]
+                ) !!}
             </div>
 
             <div class="form-group mt-5">
