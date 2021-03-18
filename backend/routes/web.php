@@ -21,11 +21,12 @@ Auth::routes([
     'register' => false,
 ]);
 
-Route::get('/login/backend', 'Auth\LoginController@loginBackend')->name('login_backend');
+Route::get('/login/backend', 'Auth\LoginController@loginBackend')
+    ->middleware('login.backend')->name('login_backend');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/ranking', 'RankingController@index')->name('ranking');
 
 Route::get('/result', 'ResultController@index')->name('result');
-Route::post('/result/submit', 'ResultController@submit')->name('result.submit');
+Route::post('/result', 'ResultController@submit')->name('result.submit');

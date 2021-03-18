@@ -21,7 +21,7 @@ class ResultController extends Controller
         if (Auth::user() === null) {
             $user = new User();
             $user->fill($request->all());
-            $user->password = Hash::make($request->password);    
+            $user->password = Hash::make($request->password);
 
             DB::transaction(function () use ($user) {
                 $user->saveOrFail();

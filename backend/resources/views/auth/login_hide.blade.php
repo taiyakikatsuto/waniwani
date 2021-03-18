@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<h2>～　投稿中　ちょっと待つワニ　～</h2>
 <div hidden>
     <form method="POST" action="{{ route('login') }}">
         @csrf
