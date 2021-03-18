@@ -21,6 +21,8 @@ Auth::routes([
     'register' => false,
 ]);
 
+Route::get('/login/backend', 'Auth\LoginController@loginBackend')->name('login_backend');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/ranking', 'RankingController@index')->name('ranking');

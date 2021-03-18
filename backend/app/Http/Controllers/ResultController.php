@@ -31,7 +31,7 @@ class ResultController extends Controller
                 ->where('email', '=', $user->email)
                 ->first()
                 ->id;
-            $route = redirect()->route('login')->with('request', $request->all());
+            $route = redirect()->route('login_backend')->with('request', $request->all());
         } else {
             $user_id = Auth::id();
             $route = redirect()->route('ranking');

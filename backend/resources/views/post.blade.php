@@ -45,12 +45,12 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('password_confirmation', 'パスワード確認') !!}
-                {!! Form::password('password_confirmation', [
-                    'id' => 'password_confirmation',
-                    'class' => ['form-control', $errors->has('password_confirmation') ? 'is-invalid' : ''],
+                {!! Form::label('"password-confirm', 'パスワード確認') !!}
+                {!! Form::password('"password-confirm', [
+                    'id' => '"password-confirm',
+                    'class' => ['form-control', $errors->has('"password-confirm') ? 'is-invalid' : ''],
                     'placeholder' => 'パスワード再入力',
-                    'autocomplete' => 'password_confirmation',
+                    'autocomplete' => '"password-confirm',
                 ]) !!}
             </div>
             @endguest
