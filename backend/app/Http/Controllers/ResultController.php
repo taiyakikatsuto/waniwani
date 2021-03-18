@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\ResultRequest;
 
 class ResultController extends Controller
 {
@@ -16,7 +17,7 @@ class ResultController extends Controller
         return view('post');
     }
 
-    public function submit(Request $request)
+    public function submit(ResultRequest $request)
     {
         if (Auth::user() === null) {
             $user = new User();

@@ -23,6 +23,11 @@
                     'placeholder' => 'お名前',
                     'autocomplete' => 'name',
                 ]) !!}
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('email', 'メールアドレス') !!}
@@ -32,6 +37,11 @@
                     'placeholder' => 'メールアドレス',
                     'autocomplete' => 'email',
                 ]) !!}
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -42,16 +52,26 @@
                     'placeholder' => 'パスワード',
                     'autocomplete' => 'password',
                 ]) !!}
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group">
-                {!! Form::label('"password-confirm', 'パスワード確認') !!}
-                {!! Form::password('"password-confirm', [
-                    'id' => '"password-confirm',
-                    'class' => ['form-control', $errors->has('"password-confirm') ? 'is-invalid' : ''],
+                {!! Form::label('password_confirmation', 'パスワード確認') !!}
+                {!! Form::password('password_confirmation', [
+                    'id' => 'password_confirmation',
+                    'class' => ['form-control', $errors->has('password_confirmation') ? 'is-invalid' : ''],
                     'placeholder' => 'パスワード再入力',
-                    'autocomplete' => '"password-confirm',
+                    'autocomplete' => 'password_confirmation',
                 ]) !!}
+                @error('password_confirmation')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             @endguest
 
@@ -65,6 +85,11 @@
                     'placeholder' => '点数',
                     'autocomplete' => 'point',
                 ]) !!}
+                @error('point')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('bitten', '噛まれた数') !!}
@@ -74,6 +99,11 @@
                     'placeholder' => '噛まれた回数',
                     'autocomplete' => 'bitten',
                 ]) !!}
+                @error('bitten')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -86,11 +116,16 @@
                     old('model_id'), 
                     [
                         'id' => 'model_id',
-                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'class' => ['form-control', $errors->has('model_id') ? 'is-invalid' : ''],
                         'placeholder' => '---機種---',
                         'autocomplete' => 'model_id',
                     ]
                 ) !!}
+                @error('model_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -103,11 +138,16 @@
                     old('play_type'), 
                     [
                         'id' => 'play_type',
-                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'class' => ['form-control', $errors->has('play_type') ? 'is-invalid' : ''],
                         'placeholder' => '---プレイタイプ---',
                         'autocomplete' => 'play_type',
                     ]
                 ) !!}
+                @error('play_type')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group">
@@ -120,11 +160,16 @@
                     old('store'), 
                     [
                         'id' => 'store_id',
-                        'class' => ['form-control', $errors->has('store') ? 'is-invalid' : ''],
+                        'class' => ['form-control', $errors->has('store_id') ? 'is-invalid' : ''],
                         'placeholder' => '---プレイ店舗---',
-                        'autocomplete' => 'store',
+                        'autocomplete' => 'store_id',
                     ]
                 ) !!}
+                @error('store_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
 
             <div class="form-group mt-5">
