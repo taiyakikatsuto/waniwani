@@ -13,18 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('root');
+Route::redirect('/', '/ranking')->name('root');
+Route::redirect('/home', '/ranking')->name('home');
+
 
 Auth::routes([
-    'register' => false,
 ]);
 
 Route::get('/login/backend', 'Auth\LoginController@loginBackend')
     ->middleware('login.backend')->name('login_backend');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/ranking', 'RankingController@index')->name('ranking');
 
