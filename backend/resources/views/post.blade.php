@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            {{ Form::open(['method' => 'POST', 'route' => 'result.submit']) }}
+            {{ Form::open(['method' => 'POST', 'route' => 'result.submit', 'enctype' => "multipart/form-data"]) }}
             {{ Form::token() }}
             <div class="card-header">
                 <h2>リザルト投稿</h2>
@@ -88,15 +88,15 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('file', 'プレイ結果の画像') !!}
+                {!! Form::label('file_name', 'プレイ結果の画像') !!}
                 <div class="custom-file form-control-sm">
-                {!! Form::file('file', old('file'), 
+                {!! Form::file('file_name', old('file_name'), 
                     [
-                        'id' => 'file',
-                        'class' => ['custom-file-input', $errors->has('file') ? 'is-invalid' : ''],
+                        'id' => 'file_name',
+                        'class' => ['custom-file-input', $errors->has('file_name') ? 'is-invalid' : ''],
                     ]
                 )!!}
-                <label class="custom-file-label" for="file">プレイ結果の画像</label>
+                <label class="custom-file-label" for="file_name">プレイ結果の画像</label>
                 </div>
             </div>
 

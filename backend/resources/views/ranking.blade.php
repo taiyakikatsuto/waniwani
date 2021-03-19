@@ -24,6 +24,7 @@
               <th>あそんだ場所</th>
             </tr>
           </thead>
+          
           <tbody>
             <tr>
               <td>1位</td>
@@ -43,6 +44,11 @@
                     <td>{{ $ranking_today->point }}点</td>
                     <td>{{ $ranking_today->bitten }}回</td>
                     <td>{{ config('consts.pref')[$ranking_today->user->pref] }}</td>
+                    @isset($ranking_today->file_name)
+                    @if ($ranking_today->file_name !== '#')
+                     <img src="{{ asset('storage/img/' . $ranking_today->file_name) }}">    
+                    @endif
+                    @endisset
                   </tr>
                   @php
                       $i++;

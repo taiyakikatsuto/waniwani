@@ -37,11 +37,12 @@ class ResultController extends Controller
             $user_id = Auth::id();
             $route = redirect()->route('ranking');
         }
-
         $result = new Result();
         $result->fill($request->all());
         $result->user_id = $user_id;
-        DB::transaction(function () use ($result) {
+        DB::transaction(function () use ($result, $request) {
+            $path = $request->file('file_name')->store('public/img');
+            $result->file_name = basename($path);
             $result->saveOrFail();
         });
         

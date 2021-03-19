@@ -34,7 +34,7 @@ class ResultRequest extends FormRequest
             'bitten' => ['required', 'integer'],
             'model_id' => ['required', 'integer'],
             'play_type' => ['required', 'integer'],
-            'file' => [],
+            'file_name' => [],
         ];
 
         if (!(Auth::check())) {

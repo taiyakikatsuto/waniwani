@@ -152,7 +152,7 @@ return [
         'bitten' => '噛まれた数',
         'model_id' => '機種',
         'play_type' => 'プレイタイプ',
-        'file' => '画像',
+        'file_name' => '画像',
     ],
 
 ];
