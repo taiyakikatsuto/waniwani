@@ -21,7 +21,8 @@
               <th class="text-nowrap">名前</th>
               <th class="text-nowrap">とくてん</th>
               <th class="text-nowrap">かまれた数</th>
-              <th>あそんだ場所</th>
+              <th class="text-nowrap">あそんだ場所</th>
+              <th class="text-nowrap">写真</th>
             </tr>
           </thead>
           
@@ -32,6 +33,7 @@
               <td>154点</td>
               <td>0回</td>
               <td>東京都</td>
+              <td><i class="far fa-image"></i></td>
             </tr>
             @if($rankings_today->count())
               @php
@@ -44,11 +46,18 @@
                     <td>{{ $ranking_today->point }}点</td>
                     <td>{{ $ranking_today->bitten }}回</td>
                     <td>{{ config('consts.pref')[$ranking_today->user->pref] }}</td>
-                    @isset($ranking_today->file_name)
-                    @if ($ranking_today->file_name !== '#')
-                     <img src="{{ asset('storage/img/' . $ranking_today->file_name) }}">    
-                    @endif
-                    @endisset
+                    <td>
+                      @isset($ranking_today->file_name)
+                        @if ($ranking_today->file_name !== '#')
+                          <a href="{{ asset('storage/img/' . $ranking_today->file_name) }}" data-toggle="modal" data-target="#testModal">
+                          <i class="far fa-image"></i>
+                          </a>
+                          <div class="d-none">
+                            <img src="{{ asset('storage/img/' . $ranking_today->file_name) }}" id="imageresource">  
+                          </div>
+                        @endif
+                      @endisset
+                    </td>
                   </tr>
                   @php
                       $i++;
@@ -73,7 +82,8 @@
               <th class="text-nowrap">名前</th>
               <th class="text-nowrap">とくてん</th>
               <th class="text-nowrap">かまれた数</th>
-              <th>あそんだ場所</th>
+              <th class="text-nowrap">あそんだ場所</th>
+              <th class="text-nowrap">写真</th>
             </tr>
           </thead>
           <tbody>
@@ -83,6 +93,7 @@
               <td>154点</td>
               <td>0回</td>
               <td>東京都</td>
+              <td><i class="far fa-image"></i></td>
             </tr>
             @if($rankings_all->count())
               @php
@@ -95,10 +106,21 @@
                     <td>{{ $ranking_all->point }}点</td>
                     <td>{{ $ranking_all->bitten }}回</td>
                     <td>{{ config('consts.pref')[$ranking_today->user->pref] }}</td>
-                  </tr>
-                  @php
+                    @php
                       $i++;
-                  @endphp
+                      $img = '<img src="' . "{{ asset('storage/img/' . $ranking_today->file_name) }}" . '">';
+                    @endphp
+
+                    <td>
+                      @isset($ranking_today->file_name)
+                        @if ($ranking_today->file_name !== '#')
+                      <a href="{{ asset('storage/img/' . $ranking_today->file_name) }}" data-toggle="modal" data-target="#testModal" data-img="{{ $img }}">
+                          <i class="far fa-image"></i>
+                          </a>
+                        @endif
+                      @endisset
+                    </td>
+                  </tr>
               @endforeach
             @endif
 
@@ -107,9 +129,24 @@
       </div>
     </div>
   </div>
-
-  <hr>
-
+  <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4><div class="modal-title" id="myModalLabel">そのときの写真</div></h4>
+                <p class="notice_date">test</p>
+            </div>
+            <div class="modal-body">
+              <div class="w-auto">
+                <img id="imagepreview" class="img-fluid img-rounded" src="{{ asset('storage/img/' . $ranking_today->file_name) }}">
+              </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">閉じる</button>
+            </div>
+        </div>
+    </div>
+</div>
   @include('elements.footer')
 
   @endsection

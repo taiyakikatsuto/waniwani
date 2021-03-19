@@ -36,5 +36,11 @@
        
          <!-- Custom scripts for this template -->
          <script src="js/clean-blog.min.js"></script>
+         <script>
+            $('#testModal').on('show.bs.modal', function (e){
+                var a = $(e.relatedTarget);
+                $('#testModal .notice_date').text(a.data('img'));
+            }):
+         </script>
     </body>
 </html>

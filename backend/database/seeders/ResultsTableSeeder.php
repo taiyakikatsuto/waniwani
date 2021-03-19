@@ -24,7 +24,7 @@ class ResultsTableSeeder extends Seeder
                     'play_type' => 1,
                     'point' => rand(50, 100),
                     'bitten' => rand(0, 10),
-                    'file_name' => "#",
+                    'file_name' => null,
                     'created_at' => date("Y-m-d H:i:s"),
                 ],
             ]);
