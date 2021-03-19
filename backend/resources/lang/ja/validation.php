@@ -144,6 +144,7 @@ return [
     'attributes' => [
         //ResultRequest
         'name' => 'お名前',
+        'pref' => '都道府県',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'password_confirmation' => 'パスワード確認',
@@ -151,7 +152,6 @@ return [
         'bitten' => '噛まれた数',
         'model_id' => '機種',
         'play_type' => 'プレイタイプ',
-        'store_id' => 'プレイ店舗',
         'file' => '画像',
     ],
 

@@ -26,7 +26,7 @@
         <!-- Custom styles for this template -->
         <link href="css/clean-blog.css" rel="stylesheet">      
 
-        
+        <style>.custom-file-label::after { content: "画像選択"; }</style>
     </head>
     <body>
          @yield('content')

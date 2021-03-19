@@ -12,7 +12,6 @@ class Result extends Model
     protected $fillable = [
         'id',
         'user_id',
-        'store_id',
         'model_id',
         'play_type',
         'point',

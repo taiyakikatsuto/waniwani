@@ -13,69 +13,6 @@
             <div class="card-header">
                 <h2>リザルト投稿</h2>
             </div>
-            
-            @guest                
-            <div class="form-group mt-4">
-                {!! Form::label('name', '名前') !!}
-                {!! Form::text('name', old('name'), [
-                    'id' => 'email',
-                    'class' => ['form-control', $errors->has('name') ? 'is-invalid' : ''],
-                    'placeholder' => 'お名前',
-                    'autocomplete' => 'name',
-                ]) !!}
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            <div class="form-group">
-                {!! Form::label('email', 'メールアドレス') !!}
-                {!! Form::text('email', old('email'), [
-                    'id' => 'email',
-                    'class' => ['form-control', $errors->has('name') ? 'is-invalid' : ''],
-                    'placeholder' => 'メールアドレス',
-                    'autocomplete' => 'email',
-                ]) !!}
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('password', 'パスワード') !!}
-                {!! Form::password('password', [
-                    'id' => 'password',
-                    'class' => ['form-control', $errors->has('password') ? 'is-invalid' : ''],
-                    'placeholder' => 'パスワード',
-                    'autocomplete' => 'password',
-                ]) !!}
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('password_confirmation', 'パスワード確認') !!}
-                {!! Form::password('password_confirmation', [
-                    'id' => 'password_confirmation',
-                    'class' => ['form-control', $errors->has('password_confirmation') ? 'is-invalid' : ''],
-                    'placeholder' => 'パスワード再入力',
-                    'autocomplete' => 'password_confirmation',
-                ]) !!}
-                @error('password_confirmation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-            @endguest
-
-
 
             <div class="form-group mt-4">
                 {!! Form::label('point', '点数') !!}
@@ -151,30 +88,96 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('store_id', 'プレイ店舗') !!}
-                {!! Form::select('store_id', 
+                {!! Form::label('file', 'プレイ結果の画像') !!}
+                <div class="custom-file form-control-sm">
+                {!! Form::file('file', old('file'), 
                     [
-                        '1' => 'ラウンドワン東淀川',
-                        '2' => 'ラウンドワン津・高茶屋'
-                    ],
-                    old('store'), 
-                    [
-                        'id' => 'store_id',
-                        'class' => ['form-control', $errors->has('store_id') ? 'is-invalid' : ''],
-                        'placeholder' => '---プレイ店舗---',
-                        'autocomplete' => 'store_id',
+                        'id' => 'file',
+                        'class' => ['custom-file-input', $errors->has('file') ? 'is-invalid' : ''],
                     ]
-                ) !!}
-                @error('store_id')
+                )!!}
+                <label class="custom-file-label" for="file">プレイ結果の画像</label>
+                </div>
+            </div>
+
+            @guest                
+            <div class="form-group mt-5">
+                {!! Form::label('name', '名前') !!}
+                {!! Form::text('name', old('name'), [
+                    'id' => 'email',
+                    'class' => ['form-control', $errors->has('name') ? 'is-invalid' : ''],
+                    'placeholder' => 'お名前',
+                    'autocomplete' => 'name',
+                ]) !!}
+                @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
 
-            <div class="form-group mt-5">
-                {!! Form::file('file') !!}
+            <div class="form-group">
+                {!! Form::label('pref', '都道府県') !!}
+                {!! Form::select('pref', config('consts.pref'), old('pref'), 
+                    [
+                        'id' => 'pref',
+                        'class' => ['form-control', $errors->has('pref') ? 'is-invalid' : ''],
+                        'placeholder' => '---都道府県---',
+                        'autocomplete' => 'pref',
+                    ]
+                ) !!}
+                @error('pref')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
+
+            <div class="form-group">
+                {!! Form::label('email', 'メールアドレス') !!}
+                {!! Form::text('email', old('email'), [
+                    'id' => 'email',
+                    'class' => ['form-control', $errors->has('email') ? 'is-invalid' : ''],
+                    'placeholder' => 'メールアドレス',
+                    'autocomplete' => 'email',
+                ]) !!}
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('password', 'パスワード') !!}
+                {!! Form::password('password', [
+                    'id' => 'password',
+                    'class' => ['form-control', $errors->has('password') ? 'is-invalid' : ''],
+                    'placeholder' => 'パスワード',
+                    'autocomplete' => 'password',
+                ]) !!}
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('password_confirmation', 'パスワード確認') !!}
+                {!! Form::password('password_confirmation', [
+                    'id' => 'password_confirmation',
+                    'class' => ['form-control', $errors->has('password_confirmation') ? 'is-invalid' : ''],
+                    'placeholder' => 'パスワード再入力',
+                    'autocomplete' => 'password_confirmation',
+                ]) !!}
+                @error('password_confirmation')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            @endguest
 
             <div class="text-right">
                 <button class="btn btn-primary">送信</button>
@@ -186,5 +189,8 @@
 </div>
 @include('elements.footer')
 
-
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script>
+  bsCustomFileInput.init();
+</script>
 @endsection

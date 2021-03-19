@@ -34,13 +34,13 @@ class ResultRequest extends FormRequest
             'bitten' => ['required', 'integer'],
             'model_id' => ['required', 'integer'],
             'play_type' => ['required', 'integer'],
-            'store_id' => ['required', 'integer'],
             'file' => [],
         ];
 
         if (!(Auth::check())) {
             $rules = array_merge($rules, [
                 'name' => ['required', 'string', 'max:64', Rule::unique('users', 'name')],
+                'pref' => ['required', 'integer'],
                 'email' => ['required'],
                 'password' => ['required', 'confirmed', 'string', 'min:6', 'max:30',
                                 'regex:/^[a-zA-Z0-9\/*\-+.,!#$%&\(\)~\|_]+$/'],
