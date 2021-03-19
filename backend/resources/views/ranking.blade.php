@@ -21,7 +21,7 @@
               <th class="text-nowrap">名前</th>
               <th class="text-nowrap">とくてん</th>
               <th class="text-nowrap">かまれた数</th>
-              <th>プレイ店舗</th>
+              <th>あそんだ場所</th>
             </tr>
           </thead>
           <tbody>
@@ -30,7 +30,7 @@
               <td>ワニ子</td>
               <td>154点</td>
               <td>0回</td>
-              <td>モーリーファンタジー淡路</td>
+              <td>東京都</td>
             </tr>
             @if($rankings_today->count())
               @php
@@ -42,7 +42,7 @@
                     <td>{{ $ranking_today->user->name }}</td>
                     <td>{{ $ranking_today->point }}点</td>
                     <td>{{ $ranking_today->bitten }}回</td>
-                    <td>{{ config('consts.stores.Stores')[$ranking_today->store_id] }}</td>
+                    <td>{{ config('consts.pref')[$ranking_today->user->pref] }}</td>
                   </tr>
                   @php
                       $i++;
@@ -67,7 +67,7 @@
               <th class="text-nowrap">名前</th>
               <th class="text-nowrap">とくてん</th>
               <th class="text-nowrap">かまれた数</th>
-              <th>プレイ店舗</th>
+              <th>あそんだ場所</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +76,7 @@
               <td>ワニ子</td>
               <td>154点</td>
               <td>0回</td>
-              <td>モーリーファンタジー淡路</td>
+              <td>東京都</td>
             </tr>
             @if($rankings_all->count())
               @php
@@ -88,7 +88,7 @@
                     <td>{{ $ranking_all->user->name }}</td>
                     <td>{{ $ranking_all->point }}点</td>
                     <td>{{ $ranking_all->bitten }}回</td>
-                    <td>{{ config('consts.stores.Stores')[$ranking_all->store_id] }}</td>
+                    <td>{{ config('consts.pref')[$ranking_today->user->pref] }}</td>
                   </tr>
                   @php
                       $i++;

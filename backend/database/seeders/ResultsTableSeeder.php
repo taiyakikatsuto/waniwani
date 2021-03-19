@@ -20,7 +20,6 @@ class ResultsTableSeeder extends Seeder
             DB::table('results')->insert([
                 [
                     'user_id' => rand(2, 4),
-                    'store_id' => 1,
                     'model_id' => 1,
                     'play_type' => 1,
                     'point' => rand(50, 100),
