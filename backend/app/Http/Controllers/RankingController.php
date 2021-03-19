@@ -21,7 +21,7 @@ class RankingController extends Controller
             ->get()
         ;
 
-        return view('index', [
+        return view('ranking', [
             'rankings_all' => $rankings_all,
             'rankings_today' => $rankings_today,
         ]);

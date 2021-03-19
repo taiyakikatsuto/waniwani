@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ResultRequest extends FormRequest
 {
@@ -28,12 +29,7 @@ class ResultRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => ['required', 'string', 'max:64', Rule::unique('users', 'name')],
-            'email' => ['required'],
-            'password' => ['required', 'confirmd', 'string', 'min:6', 'max:30',
-                            'regex:/^[a-zA-Z0-9\/*\-+.,!#$%&\(\)~\|_]+$/'],
-            'password_confirmation' => ['required'],
+        $rules = [
             'point' => ['required', 'integer'],
             'bitten' => ['required', 'integer'],
             'model_id' => ['required', 'integer'],
@@ -41,5 +37,17 @@ class ResultRequest extends FormRequest
             'store_id' => ['required', 'integer'],
             'file' => [],
         ];
+
+        if (!(Auth::check())) {
+            $rules = array_merge($rules, [
+                'name' => ['required', 'string', 'max:64', Rule::unique('users', 'name')],
+                'email' => ['required'],
+                'password' => ['required', 'confirmed', 'string', 'min:6', 'max:30',
+                                'regex:/^[a-zA-Z0-9\/*\-+.,!#$%&\(\)~\|_]+$/'],
+                'password_confirmation' => ['required'],
+                ]);
+        }
+
+        return $rules;
     }
 }
