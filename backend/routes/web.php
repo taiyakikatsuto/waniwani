@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function PHPSTORM_META\registerArgumentsSet;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,7 @@ Route::redirect('/home', '/ranking')->name('home');
 
 
 Auth::routes([
+    'register' => false
 ]);
 
 Route::get('/login/backend', 'Auth\LoginController@loginBackend')

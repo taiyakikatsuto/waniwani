@@ -12,12 +12,14 @@ class RankingController extends Controller
         $rankings_all = Result::
             with('user')
             ->orderBy('point', 'desc')
+            ->limit(30)
             ->get()
         ;
-
+        $today = date('Y/m/d');
         $rankings_today = Result::
-            whereDay('created_at', 'dd')
-            ->orderBy('point', 'asc')
+            whereDate('created_at', $today)
+            ->orderBy('point', 'desc')
+            ->limit(30)
             ->get()
         ;
 

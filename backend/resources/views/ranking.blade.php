@@ -12,58 +12,13 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="card-header">
-          <h2>歴代のスゴウデ</h2>
-        </div> 
-        <table class="table table-bordered table-hover">
-          <thead class="thead-light">
-            <tr>
-              <th>順位</th>
-              <th>名前</th>
-              <th class="text-nowrap">とくてん</th>
-              <th class="text-nowrap">かまれた数</th>
-              <th>プレイ店舗</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1位</td>
-              <td>ワニ子</td>
-              <td>154点</td>
-              <td>0回</td>
-              <td>モーリーファンタジー淡路</td>
-            </tr>
-            @if($rankings_all->count())
-              @php
-                  $i = 2;
-              @endphp
-              @foreach ($rankings_all as $ranking_all)
-                  <tr>
-                    <td>{{$i}}位</td>
-                    <td>{{ $ranking_all->user->name }}</td>
-                    <td>{{ $ranking_all->point }}点</td>
-                    <td>{{ $ranking_all->bitten }}回</td>
-                    <td>{{ config('consts.stores.Stores')[$ranking_all->store_id] }}</td>
-                  </tr>
-                  @php
-                      $i++;
-                  @endphp
-              @endforeach
-            @endif
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="card-header">
           <h2>本日のスゴウデ</h2>
         </div> 
         <table class="table table-bordered table-hover">
           <thead class="thead-light">
             <tr>
-              <th>順位</th>
-              <th>名前</th>
+              <th class="text-nowrap">順位</th>
+              <th class="text-nowrap">名前</th>
               <th class="text-nowrap">とくてん</th>
               <th class="text-nowrap">かまれた数</th>
               <th>プレイ店舗</th>
@@ -100,6 +55,51 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="card-header">
+          <h2>歴代のスゴウデ</h2>
+        </div> 
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th class="text-nowrap">順位</th>
+              <th class="text-nowrap">名前</th>
+              <th class="text-nowrap">とくてん</th>
+              <th class="text-nowrap">かまれた数</th>
+              <th>プレイ店舗</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1位</td>
+              <td>ワニ子</td>
+              <td>154点</td>
+              <td>0回</td>
+              <td>モーリーファンタジー淡路</td>
+            </tr>
+            @if($rankings_all->count())
+              @php
+                  $i = 2;
+              @endphp
+              @foreach ($rankings_all as $ranking_all)
+                  <tr>
+                    <td>{{$i}}位</td>
+                    <td>{{ $ranking_all->user->name }}</td>
+                    <td>{{ $ranking_all->point }}点</td>
+                    <td>{{ $ranking_all->bitten }}回</td>
+                    <td>{{ config('consts.stores.Stores')[$ranking_all->store_id] }}</td>
+                  </tr>
+                  @php
+                      $i++;
+                  @endphp
+              @endforeach
+            @endif
+
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <hr>

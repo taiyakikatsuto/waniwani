@@ -1,7 +1,7 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('root') }}">Start Bootstrap</a>
+      <a class="navbar-brand" href="{{ route('root') }}">ワニワニランキング</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -9,13 +9,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">Home</a>
+            <a class="nav-link" href="{{ route('home') }}">ホーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('ranking') }}">Ranking</a>
+            <a class="nav-link" href="{{ route('ranking') }}">スゴウデランキング</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('result') }}">Post Result</a>
+            <a class="nav-link" href="{{ route('result') }}">リザルト投稿</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Now maintenance...</a>
@@ -26,7 +26,7 @@
           @guest
               @if (Route::has('login'))
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a class="nav-link" href="{{ route('login') }}">ログイン</a>
                   </li>
               @endif
               
